@@ -35,7 +35,7 @@ if __name__ == '__main__':
             query = """
             INSERT INTO users(username, password, email) 
             VALUES
-                ('nahuel.developer1@gmail.com', 'password123', 'nahuel.developer1@gmail.com')
+                ('nahuel-DevOne', 'password123', 'nahuel.developer1@gmail.com')
             """
             # ejecutando con execute la query
             cursor.execute(query)
