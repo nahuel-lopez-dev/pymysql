@@ -21,6 +21,7 @@ users = [
     ('user2', 'password2', 'user2@gmail.com'),
     ('user3', 'password3', 'user3@gmail.com'),
     ('user4', 'password4', 'user4@gmail.com'),
+    ('user5', 'password5', 'user5@gmail.com'),
 ]
 
 if __name__ == '__main__':
@@ -40,9 +41,13 @@ if __name__ == '__main__':
             cursor.execute(USERS_TABLE)
             # inserción usando placeholders %s (requiere dos argumentos)
             query = "INSERT INTO users(username, password, email) VALUES(%s, %s, %s)"
+            ##### Insertando múltiples registros ##### 
+            ##### con un ciclo for
+            # for user in users:
+            #     cursor.execute(query, user)
             
-            for user in users:
-                cursor.execute(query, user) 
+            ##### con un método del cursor
+            cursor.executemany(query, users) 
             
             # para poder persistir todos los cambios realizados
             connect.commit()
